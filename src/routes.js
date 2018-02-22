@@ -25,23 +25,28 @@ import BhaveshDashboard from './members/BhaveshChowdhury/Dashboard';
 import BhaveshLocked from './portals/BhaveshChowdhury'
 import BhaveshPortfolio from './members/BhaveshChowdhury/Portfolio';
 
+import RyanLocked from './portals/RyanLiszewski';
+import RyanDashboard from './members/RyanLiszewski/Dashboard';
+import RyanSettings from './members/RyanLiszewski/Settings';
+import RyanProfile from './members/RyanLiszewski/Profile';
+import RyanPortfolio from './members/RyanLiszewski/Portfolio';
+
 import William from './members/WilliamHua';
 
 import TeodoraDashboard from './members/TeodoraCaneva/Dashboard';
 import TeodoraPortfolio from './members/TeodoraCaneva/Portfolio';
 import TeodoraProfile from './members/TeodoraCaneva/Profile';
 import TeodoraLocked from './portals/TeodoraCaneva'
-import Teodora from './members/TeodoraCaneva';
 
 import PrakashDashboard from './members/PrakashGurung/Dashboard';
-import Prakash from './members/PrakashGurung';
 import PrakashLocked from './portals/PrakashGurung'
 import PrakashProfile from './members/PrakashGurung/Profile';
 import PrakashPortfolio from './members/PrakashGurung/Portfolio';
 
-import Emanuel from './members/EmanuelSaunders';
-import Nicholas from './members/NicholasSzeto';
-import Jahon from './members/JakhongirKhusanov';
+import EmanuelDashboard from './members/EmanuelSaunders/Dashboard';
+import EmanuelPortfolio from './members/EmanuelSaunders/Portfolio';
+import EmanuelProfile from './members/EmanuelSaunders/Profile';
+import EmanuelLocked from './portals/EmanuelSaunders'
 
 import SukhjitDashboard from './members/SukhjitSingh/Dashboard';
 import SukhjitProfile from './members/SukhjitSingh/Profile';
@@ -53,8 +58,6 @@ import JakhongirPortfolio from './members/JakhongirKhusanov/Portfolio';
 import JakhongirProfile from './members/JakhongirKhusanov/Profile';
 import JakhongirLocked from './portals/JakhongirKhusanov'
 
-import Sukhjit from './members/SukhjitSingh';
-
 import Ryan from './members/RyanLiszewski';
 
 import ThomasDashboard from './members/ThomasZhu/Dashboard';
@@ -65,7 +68,12 @@ import ThomasLocked from './portals/ThomasZhu'
 import Bhavesh from './members/BhaveshChowdhury';
 import Girish from './members/GirishRawat';
 import Affaan from './members/AffaanGhazzali';
-import Karan from './members/KaranGupta';
+
+// import Karan from './members/KaranGupta';
+import KaranDashboard from './members/KaranGupta/Dashboard';
+import KaranPortfolio from './members/KaranGupta/Portfolio';
+import KaranProfile from './members/KaranGupta/Profile';
+import KaranLocked from './portals/KaranGupta';
 
 const Routes = (props) => {
   return (
@@ -88,9 +96,13 @@ const Routes = (props) => {
         <Route path="/bhavesh/dashboard" component={BhaveshDashboard} />
         <Route path="/bhavesh/portfolio" component={BhaveshPortfolio} />
         <Route path="/bhavesh/locked" component={BhaveshLocked} />
-    
-        <Route path="/william" component={William} />
-
+        
+        <Route exact path="/emanuel" component={EmanuelDashboard} />
+        <Route path="/emanuel/profile" component={EmanuelProfile} />
+        <Route path="/emanuel/locked" component={EmanuelLocked} />
+        <Route path="/emanuel/dashboard" component={EmanuelDashboard} />
+        <Route path="/emanuel/portfolio" component={EmanuelPortfolio} />
+       
         <Route exact path="/teodora" component={TeodoraDashboard} />
         <Route path="/teodora/dashboard" component={TeodoraDashboard} />
         <Route path="/teodora/profile" component={TeodoraProfile} />
@@ -103,9 +115,7 @@ const Routes = (props) => {
         <Route path="/prakash/profile" component={PrakashProfile} />
         <Route path="/prakash/portfolio" component={PrakashPortfolio} />
 
-        <Route path="/emanuel" component={Emanuel} />
         <Route path="/affaan" component={Affaan} />
-        <Route path="/nicholas" component={Nicholas} />
 
         <Route exact path="/sukhjit" component={SukhjitDashboard} />
         <Route path="/sukhjit/dashboard" component={SukhjitDashboard} />
@@ -119,13 +129,17 @@ const Routes = (props) => {
         <Route path="/Jakhongir/profile" component={JakhongirProfile} />
         <Route path="/Jakhongir/locked" component={JakhongirLocked} />
 
+        <Route exact path="/ryan" component={RyanDashboard} />
+        <Route path="/ryan/locked" component={RyanLocked} />
+        <Route path="/ryan/settings" component={RyanSettings} />
+        <Route path="/ryan/profile" component={RyanProfile} />
+        <Route path="/ryan/portfolio" component={RyanPortfolio} /> 
+
         <Route exact path="/mitul" component={MitulDashboard} />
         <Route path="/mitul/dashboard" component={MitulDashboard}/>
         <Route path="/mitul/locked" component={MitulLocked} />
         <Route path="/mitul/portfolio" component={MitulPortfolio} />
         <Route path="/mitul/profile" component={MitulProfile} />
-
-        <Route path="/ryan" component={Ryan} />
 
         <Route exact path="/thomas" component={ThomasDashboard} />
         <Route path="/thomas/dashboard" component={ThomasDashboard} />
@@ -134,7 +148,16 @@ const Routes = (props) => {
         <Route path="/thomas/locked" component={ThomasLocked} />
         
         <Route path="/girish" component={Girish} />
-        <Route path="/karan" component={Karan} />
+        
+        {/* <Route path="/karan" component={Karan} /> */}
+        <Route exact path="/karan" component={KaranDashboard} />
+        <Route path="/karan/dashboard" component={KaranDashboard} />
+        <Route path="/karan/portfolio" component={KaranPortfolio} />
+        <Route path="/karan/profile" component={KaranProfile} />
+        <Route path="/karan/locked" component={KaranLocked} />
+        
+        <Route path="/affaan" component={Affaan} />
+        <Route path="/william" component={William} />
       </Switch>
     </Router>
   )

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import '../styles/MonteThakkar.css'
+import '../styles/KaranGupta.css'
 
 import CloseArrow from '../assets/close.png';
 import LockIcon from '../assets/lock.png'
 
-export default class MonteThakkarPortal extends Component {
+export default class KaranGuptaPortal extends Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +31,7 @@ export default class MonteThakkarPortal extends Component {
   handleSubmit(event) {
     const { phrase, tries } = this.state
 
-    if (phrase === 'mars' || phrase === 'MARS') {
+    if (phrase === 'damn' || phrase === 'DAMN' || phrase === 'Damn') {
       this.setState({ redirect: true, tries: tries + 1 })
     } else {
       this.setState({ error: 'Access Denied', tries: tries + 1 })
@@ -49,7 +49,7 @@ export default class MonteThakkarPortal extends Component {
     const { phrase, redirect, error, tries } = this.state
 
     if (redirect) {
-      return <Redirect to='/monte/dashboard' />
+      return <Redirect to='/karan/dashboard' />
     }
 
     return (
@@ -69,7 +69,7 @@ export default class MonteThakkarPortal extends Component {
               />
             </form>
             {error != null && <div className="lock-error-message">ACCESS DENIED</div>}
-            {tries >= 1 && <div className="tries-message"><b>hint:</b> try "Mars" 😉</div>}
+            {tries >= 1 && <div className="tries-message"><b>hint:</b> try "Damn" 😉</div>}
           </div>
         </div>
       </div>

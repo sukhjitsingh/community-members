@@ -1,21 +1,20 @@
+
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import '../styles/MonteThakkar.css'
+import '../styles/EmanuelSaunders.css'
 
 import CloseArrow from '../assets/close.png';
 import LockIcon from '../assets/lock.png'
 
-export default class MonteThakkarPortal extends Component {
+export default class EmanuelSaundersPortal extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       phrase: '',
       redirect: false,
-      error: null,
-      tries: 0,
-      show_hint: false
+      error: null
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,18 +23,19 @@ export default class MonteThakkarPortal extends Component {
 
   handleChange(event) {
     event.preventDefault();
-    console.log(event.target.value)
+
     this.setState({ phrase: event.target.value, error: null })
   }
 
   handleSubmit(event) {
-    const { phrase, tries } = this.state
+    const { phrase } = this.state
 
-    if (phrase === 'mars' || phrase === 'MARS') {
-      this.setState({ redirect: true, tries: tries + 1 })
+    if (phrase === 'music' || phrase === 'Music') {
+      this.setState({ redirect: true })
     } else {
-      this.setState({ error: 'Access Denied', tries: tries + 1 })
+      this.setState({ error: 'Invalid Answer' })
     }
+
     event.preventDefault();
   }
 
@@ -46,30 +46,31 @@ export default class MonteThakkarPortal extends Component {
   }
 
   render() {
-    const { phrase, redirect, error, tries } = this.state
+    const { phrase, redirect, error } = this.state
 
     if (redirect) {
-      return <Redirect to='/monte/dashboard' />
+      return <Redirect to='/Emanuel' />
     }
 
     return (
-      <div className="portal-container">
+      <div className="Emanuel-portal-container">
         <Link to="/" className="back-arrow-container">
           <img className="close-icon" src={CloseArrow} />
         </Link>
         <div className="lock-container">
-          <img className="lock-icon" src={LockIcon} />
+        <div className="body">
+        <div class="glitch" data-text="LOCKED">LOCKED</div> 
+        </div>
           <div className="lock-input-container">
             <form onSubmit={this.handleSubmit}>
               <input type="text"
-                className={`phrase-input ${this.errorClass()}`}
+                className={`Emanuel-phrase-input ${this.errorClass()}`}
                 name="phrase" value={phrase}
-                placeholder="Enter secret phrase"
+                placeholder="Enter the Code"
                 onChange={this.handleChange.bind(this)}
               />
             </form>
             {error != null && <div className="lock-error-message">ACCESS DENIED</div>}
-            {tries >= 1 && <div className="tries-message"><b>hint:</b> try "Mars" 😉</div>}
           </div>
         </div>
       </div>
